@@ -64,6 +64,7 @@ do {
       }
       }
 }while(!$valideCode);
+
 $categorie = [
     "code" =>$code,
     "nom" => $nom,
@@ -79,6 +80,7 @@ foreach ($categories as $index => $categorie) {
         break;
     }
 }
+
 if ($categorieExistcate){
     $produit = [
         "nom" =>readline("saisir le nom :"),
@@ -90,5 +92,22 @@ if ($categorieExistcate){
     }else{
         echo ("la categorie n'existe pas");
     }
+
+
+$codeValide = true;
+do{
+    $code = readline("saisir le code :");
+    if(empty($code)){
+        echo"le code est obligatoire \n";
+        $codeValide = false;
+        }else{
+            foreach ($categories as $categorie) {
+               if ($categorie["code"] === code ) 
+                $codeValide = false;
+            echo ("le code existe deja \n");
+            }
+        }
+      }while(!$codeValide);
+  
 
 ?>
