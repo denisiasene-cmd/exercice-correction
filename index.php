@@ -46,4 +46,22 @@ do {
       }
       }
 }while(!$valideNom);
+
+
+ $valideCode = true;
+do {
+    $code = readline("veiller saisir le code ");
+     if(empty($code)){
+    echo "le code est obligatoire \n";
+        $valideCode = false;
+      } else{
+        foreach ($categories as  $categorie) {
+        if ($categorie["code"] === $code){
+            $valideCode = false;
+        echo "le code existe deja ";
+        break;
+        }
+      }
+      }
+}while(!$valideCode);
 ?>
