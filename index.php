@@ -30,4 +30,20 @@ foreach ($categories as  $categorie) {
         echo $categorie["nom"]."\n";
 }
 
+
+ $valideNom = true;
+do {
+    $nom = readline("veiller entrer votre nom ");
+     if(empty($nom)){
+    echo "le nom est obligatoire";
+        $valideNom = false;
+      } else{
+        foreach ($categories as  $categorie) {
+        if ($categorie["nom"] === $nom){
+            $valideNom = false;
+        echo "le nom existe deja ";
+        }
+      }
+      }
+}while(!$valideNom);
 ?>
