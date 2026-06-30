@@ -64,4 +64,10 @@ do {
       }
       }
 }while(!$valideCode);
+$categorie = [
+    "code" =>$code,
+    "nom" => $nom,
+    "produits" => []
+];
+$categories = $categorie;
 ?>
