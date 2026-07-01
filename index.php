@@ -31,8 +31,9 @@ foreach ($categories as  $categorie) {
 }
 
 
-      $valideNom = true;
 do {
+
+      $valideNom = true;
     $nom = readline("veiller entrer votre nom ");
      if(empty($nom)){
     echo "le nom est obligatoire";
@@ -42,14 +43,16 @@ do {
         if ($categorie["nom"] === $nom){
             $valideNom = false;
         echo "le nom existe deja ";
+        break;
         }
       }
       }
 }while(!$valideNom);
 
 
-  $valideCode = true;
 do {
+
+  $valideCode = true;
     $code = readline("veiller saisir le code ");
      if(empty($code)){
     echo "le code est obligatoire \n";
@@ -94,8 +97,9 @@ if ($categorieExist){
     }
 
 
-$codeValide = true;
 do{
+
+$codeValide = true;
     $code = readline("saisir le code :");
     if(empty($code)){
         echo"le code est obligatoire \n";
@@ -105,14 +109,16 @@ do{
                if ($categorie["code"] === $code ) {
                 $codeValide = false;
             echo ("le code existe deja \n");
+            break;
                }
             }
         }
       }while(!$codeValide);
   
     
-$nomValide = true;
+
 do{
+    $nomValide = true;
     $nom = readline("saisir le nom :");
     if(empty($code)){
         echo"le nom est obligatoire \n";
@@ -122,6 +128,7 @@ do{
                if ($categorie["nom"] === $nom ) 
                 $nomValide = false;
             echo ("le nom existe deja \n");
+            break;
             }
         }
       }while(!$nomValide);
@@ -144,4 +151,6 @@ do{
     "produits" => $produits
 ];
 $categories  = $categorie;
+
+
 ?>
