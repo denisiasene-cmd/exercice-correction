@@ -31,7 +31,7 @@ foreach ($categories as  $categorie) {
 }
 
 
- $valideNom = true;
+      $valideNom = true;
 do {
     $nom = readline("veiller entrer votre nom ");
      if(empty($nom)){
@@ -48,7 +48,7 @@ do {
 }while(!$valideNom);
 
 
- $valideCode = true;
+  $valideCode = true;
 do {
     $code = readline("veiller saisir le code ");
      if(empty($code)){
@@ -70,7 +70,7 @@ $categorie = [
     "nom" => $nom,
     "produits" => []
 ];
-$categories = $categorie;
+$categories[] = $categorie;
 
 $categorieExist = false;
 $code = readline("saisir le code : ");
@@ -81,7 +81,7 @@ foreach ($categories as $index => $categorie) {
     }
 }
 
-if ($categorieExistcate){
+if ($categorieExist){
     $produit = [
         "nom" =>readline("saisir le nom :"),
          "reference" =>readline("saisir la reference : "),
@@ -102,12 +102,46 @@ do{
         $codeValide = false;
         }else{
             foreach ($categories as $categorie) {
-               if ($categorie["code"] === code ) 
+               if ($categorie["code"] === $code ) {
                 $codeValide = false;
             echo ("le code existe deja \n");
+               }
             }
         }
       }while(!$codeValide);
   
+    
+$nomValide = true;
+do{
+    $nom = readline("saisir le nom :");
+    if(empty($code)){
+        echo"le nom est obligatoire \n";
+        $nomValide = false;
+        }else{
+            foreach ($categories as $categorie) {
+               if ($categorie["nom"] === $nom ) 
+                $nomValide = false;
+            echo ("le nom existe deja \n");
+            }
+        }
+      }while(!$nomValide);
 
+    $produits = [];
+    do {
+        $produit = [
+        "nom" =>readline("saisir le nom :"),
+         "reference" =>readline("saisir la reference : "),
+          "prix" =>(int)readline("saisir le prix"),
+           "quantite" => (int) readline("saisir la quantite"),
+    ];
+      $produits[]= $produit;
+      $choix = strtolower(readline("voulez vous continuer oui/nom "));
+
+    }while($choix === "oui");
+    $categorie = [
+    "code" =>$code,
+    "nom" => $nom,
+    "produits" => $produits
+];
+$categories  = $categorie;
 ?>
